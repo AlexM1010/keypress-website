@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; frame-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>KeyPress — Interactive workspace</title>
+  <style>
+    html,body {margin:0; width:100%; height:100%; overflow:hidden; background:#101014}
+    iframe {display:block; border:0; transform-origin:top left}
+  </style>
+</head>
+<body>
+  <!-- A viewport adapter, with no replacement app controls. The entire frame
+       is the original desktop layout; narrow browser panels scale it to fit. -->
+  <iframe id="workspace" src="editor/index.html?v=local" title="Original KeyPress application UI"></iframe>
+  <script type="module" src="flow-editor.js?v=local"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+# Privacy Policy for KeyPress
+
+**Effective date:** 12 October 2026
+
+KeyPress is a desktop application for creating, recording, and running mouse and keyboard automations. This policy explains the information the application handles, where it is handled, and when it may leave your device.
+
+## Summary
+
+KeyPress is designed to work locally. It does not require an account and does not include advertising, analytics, or telemetry. Your macros, recordings, settings, and routine automation activity stay on your device unless you choose to use an Anthropic-powered feature or configure a macro to save or share data through another application or service.
+
+## Information KeyPress Handles
+
+Depending on the features you use, KeyPress may handle:
+
+- Macro content, including macro names, workflow steps, typed text, coordinates, hotkeys, screen regions, conditions, and values you enter into a macro.
+- Keyboard and mouse input while you deliberately use the recording feature. Recording is active only while you start it; its pause, checkpoint, and stop controls are intended to let you control what is captured.
+- Clipboard contents when you add and run a macro step that reads, writes, or pastes clipboard data.
+- Screen content when you use screen selection, image, OCR, screenshot, or AI features. Screen captures can contain personal, confidential, or third-party information visible on your screen.
+- Window, process, and accessibility information when a macro uses corresponding automation steps.
+- Preferences such as the last macro opened, recording controls, kill-switch shortcut, startup setting, and the timestamp/version of your consent to AI computer-use mode.
+- An Anthropic API key if you choose to configure one in the application. On Windows, a key saved through KeyPress is encrypted using Windows’ user-scoped data protection. You may alternatively provide it through the `ANTHROPIC_API_KEY` environment variable; KeyPress does not write that environment variable.
+
+## Local Storage
+
+KeyPress stores saved macros and subflows as JSON files in its application data directory, and stores preferences in its application configuration directory. These files may contain any information you put into a macro, including text, workflow values, and automation instructions.
+
+During recording or AI authoring, KeyPress may create local image patches used to help identify screen locations and visual targets. These images can contain portions of your screen. The application provides cleanup for images that are not retained by the resulting recording; retained images remain local until you delete the relevant macro, image, or application data.
+
+KeyPress may also create a local screenshot if you explicitly configure a screenshot action to write one to a file. The location and retention of that file are determined by the macro configuration and your device’s file system.
+
+## When Information Leaves Your Device
+
+KeyPress does not send routine automation, macro, recording, clipboard, or screen data to KeyPress’s developer.
+
+Information is sent to Anthropic only if you choose to configure and run an Anthropic-powered feature:
+
+- **Ask Claude macro steps:** KeyPress sends the question you configure and, if you choose a screen or region view, the corresponding screenshot. The screenshot is captured in memory for that request rather than first being saved as a temporary screenshot file.
+- **AI authoring / computer-use mode:** After you provide the required consent, KeyPress may send your stated task goal, screen captures of the active target window (or, where necessary, the desktop), and related context to Anthropic so Claude can propose or perform authoring actions. This mode can also control your mouse and keyboard while it is active.
+
+These requests are made using your Anthropic API key. Anthropic’s handling of information sent to its services is governed by the terms and privacy documentation applicable to your Anthropic account and API use. Review those materials before using these features, particularly when your screen may contain sensitive information.
+
+KeyPress does not sell personal information or use it for targeted advertising.
+
+## Your Choices and Controls
+
+You can choose not to use recording, clipboard, screen-capture, OCR, or Anthropic-powered features. You can stop a recording, stop a macro, stop an AI authoring session, and configure the available recording and kill-switch controls.
+
+You can delete saved macros, subflows, local screenshots, and retained recording images from KeyPress or from the applicable local application-data location. You can remove a saved Anthropic API key through the application settings. To withdraw AI computer-use consent, remove the corresponding consent entries from KeyPress’s local configuration file; doing so prevents a new AI authoring session from starting until consent is given again.
+
+Because macros may automate other software and services, deleting data in KeyPress does not delete any information that a macro has already entered into, copied to, saved in, or sent through those other services.
+
+## Security
+
+KeyPress uses local storage and, on Windows, Windows user-scoped encryption for an API key saved through the application. No system can guarantee absolute security. Protect your device account, application-data folders, and any exported or shared macro files, especially where they contain sensitive text, screenshots, or credentials.
+
+## Third-Party Services and Your Automations
+
+This policy covers KeyPress. A macro may interact with websites, desktop applications, files, clipboards, or services you select. Those recipients and services have their own privacy practices, and KeyPress cannot control how they handle information once an automation supplies it to them.
+
+## Changes to This Policy
+
+If KeyPress changes how it handles personal information, this policy should be updated with a new effective date before or when that change is released.
+
+## Contact
+
+For privacy questions or requests, contact the KeyPress publisher at **[alex@keypress.download](mailto:alex@keypress.download)**.
+
+## Website and Browser Demo
+
+The website at https://keypress.download has a separate website privacy notice at https://keypress.download/privacy.html. It explains browser-local demo storage, GitHub Pages hosting, Google Fonts requests, and contacting the publisher. The desktop application's local storage and optional Anthropic features described above are separate from the browser demo.
+
