@@ -12,7 +12,7 @@ document.getElementById('export-flow').addEventListener('click', () => {
     link.download = (project.name.replace(/[^a-z0-9 -]/gi, '').trim() || 'flow') + '.json';
     link.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
-    status.textContent = 'Saved flow downloaded. Check it in KeyPress before running.';
+    status.textContent = 'Saved flow downloaded. Check it in Keypress before running.';
   } catch { status.textContent = 'Browser storage is unavailable. Allow storage to save and download a flow.'; }
 });
 
