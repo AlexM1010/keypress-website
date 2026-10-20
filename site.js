@@ -119,7 +119,7 @@ window.addEventListener('message',async event=>{
   try{if(!running)throw new Error('The canvas run is no longer active.');result=await act(data.action,hostRun.signal);}catch(e){error=e.message||'Action stopped.';}
   editor.contentWindow.postMessage({channel:'keypress-tour',type:'ack',requestID:data.requestID,result,error},location.origin);
  }else if(data.type==='finished'){
-  if(taskState.textContent==='Typing'){taskState.textContent='Message written';taskState.dataset.state='ready';taskLog.textContent='The flow filled its fields. Connect a Mouse Click node to Save draft to save for review.';}
+  if(taskState.textContent==='Typing'){taskState.textContent='Message written';taskState.dataset.state='ready';taskLog.textContent='The flow filled its fields. Add a Click on Save draft to save it for review.';}
   progress.max=1;progress.value=1;end('Flow complete. Edit the canvas and press its Run button again.');
  }else if(data.type==='stopped')end('Flow stopped. Return to the canvas to run it again.');
  else if(data.type==='error'){panel.hidden=false;end(data.message);}

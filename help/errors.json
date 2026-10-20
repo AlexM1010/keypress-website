@@ -1,0 +1,327 @@
+{
+  "formatVersion": 1,
+  "errors": [
+    {
+      "code": "app-shutting-down",
+      "title": "Keypress is closing",
+      "sentence": "the app is shutting down",
+      "causes": [
+        "A hotkey or a tray click arrived while Keypress was quitting."
+      ],
+      "fix": [
+        "Start Keypress again and run the macro. Nothing was started."
+      ]
+    },
+    {
+      "code": "authoring-in-progress",
+      "title": "Claude is driving the machine",
+      "sentence": "an authoring session is going and Claude is driving the machine: stop it before running a macro, or the two would fight over the mouse and keyboard",
+      "causes": [
+        "A session in which Claude drives your mouse and keyboard is still going.",
+        "A macro was started from its hotkey or the tray during that session."
+      ],
+      "fix": [
+        "Stop the session with the Stop button in the Assistant panel, then run the macro."
+      ]
+    },
+    {
+      "code": "debug-session-active",
+      "title": "A test run is already open",
+      "sentence": "a debugger session is already attached to run \u003crun\u003e: stop it before starting another",
+      "causes": [
+        "Only one test run with a debugger can be open at a time, and one is still attached to an earlier run."
+      ],
+      "fix": [
+        "Stop the test run in the Test run tab, then start the new one."
+      ]
+    },
+    {
+      "code": "empty-flowchart",
+      "title": "The macro has no steps",
+      "sentence": "The macro has no steps in it. / the macro has no steps",
+      "causes": [
+        "The canvas is empty, or the macro file you opened has no steps in it."
+      ],
+      "fix": [
+        "Add a Start and the steps after it, or open the macro you meant to run."
+      ]
+    },
+    {
+      "code": "field-value",
+      "title": "A setting has a value it cannot have",
+      "sentence": "\u003cstep\u003e: \u003csetting\u003e is \u003cvalue\u003e, and it has to be one of \u003cwords\u003e. / \u003csetting\u003e is \u003cn\u003e, and it cannot be less than \u003cm\u003e.",
+      "causes": [
+        "A number is outside the range the setting allows, or a word is not one of its choices.",
+        "The macro file was edited by hand."
+      ],
+      "fix": [
+        "Open the step and choose the setting again from its list."
+      ]
+    },
+    {
+      "code": "future-version",
+      "title": "The macro was saved by a newer version",
+      "sentence": "\u003cmacro\u003e is saved in file format version \u003cn\u003e, and this build of Keypress reads up to version \u003cm\u003e",
+      "causes": [
+        "The macro was made or saved in a newer version of Keypress than the one you are running."
+      ],
+      "fix": [
+        "Update Keypress and open the macro again.",
+        "Opening it in this version would run something other than what was saved, so Keypress will not."
+      ]
+    },
+    {
+      "code": "if-fails",
+      "title": "A step is set to do something else, and nothing has been added",
+      "sentence": "\u003cstep\u003e: If it fails is set to do something else, but nothing has been added to do yet.",
+      "causes": [
+        "A step is set to \"Do something else\" when it fails, but its If it fails lane is still empty."
+      ],
+      "fix": [
+        "Add the steps to run instead to the step's If it fails lane, or set the step to stop the macro or carry on without it. Until then it carries on, as if it were set to carry on without it."
+      ]
+    },
+    {
+      "code": "invalid-macro-data",
+      "title": "The macro could not be read",
+      "sentence": "invalid macro data: \u003cdetail\u003e",
+      "causes": [
+        "The macro file was edited by hand and is no longer valid JSON.",
+        "A bug: the editor handed the app something it should not have."
+      ],
+      "fix": [
+        "If you edited the file by hand, undo the edit or restore it from a copy.",
+        "Otherwise this is a Keypress bug. Choose Report… on the message and send the report."
+      ]
+    },
+    {
+      "code": "join",
+      "title": "An If joins values that do not match",
+      "sentence": "\u003cstep\u003e joins \u003cname\u003e from \u003cvalue\u003e in Then and \u003cvalue\u003e in Else: the two have to be the same kind of value.",
+      "causes": [
+        "The two lanes of an If make values of different kinds, or only one lane makes it.",
+        "A step that made a joined value was deleted or changed."
+      ],
+      "fix": [
+        "Open the If and remove the join, or change the steps in the lanes so both make the same kind of value."
+      ]
+    },
+    {
+      "code": "missing-picture",
+      "title": "A picture a step looks for is not on this computer",
+      "sentence": "\u003cstep\u003e has a way of finding its target by a picture, which is not on this machine.",
+      "causes": [
+        "The macro was copied to another computer without its pictures.",
+        "The picture file was moved or deleted."
+      ],
+      "fix": [
+        "Pick the target again so the picture is taken afresh, or let the other ways of finding it do the work."
+      ]
+    },
+    {
+      "code": "missing-secret",
+      "title": "A step types a secret that is not saved",
+      "sentence": "\u003cstep\u003e is set to type a secret but none is chosen / the secret \u003cname\u003e is not saved on this computer.",
+      "causes": [
+        "The macro was made on another computer, and secrets stay on the computer that saved them.",
+        "The secret was deleted from Settings."
+      ],
+      "fix": [
+        "Open Settings, add the secret again under the same name, and run the macro."
+      ]
+    },
+    {
+      "code": "no-start-node",
+      "title": "There is no Start to begin at",
+      "sentence": "The macro has no Start, so there is nothing to begin at. / the macro has no Start step / no Start step \u003cid\u003e in this macro",
+      "causes": [
+        "The macro has no Start step, or it was deleted.",
+        "A hotkey or a button names a Start that has since been removed from the macro."
+      ],
+      "fix": [
+        "Add a Start step and put the first step after it.",
+        "If a hotkey was set on a Start you deleted, set it again on the one that remains."
+      ]
+    },
+    {
+      "code": "open-app-path",
+      "title": "Open app starts something unusual",
+      "sentence": "\u003cstep\u003e opens a script or shortcut rather than a program / a program outside the usual install locations.",
+      "causes": [
+        "The step opens a file Windows would run with whatever it associates with that type.",
+        "The program is outside the folders programs are normally installed in, which is worth a look if the macro came from someone else."
+      ],
+      "fix": [
+        "Only keep the step if you know what the file does and trust where the macro came from."
+      ]
+    },
+    {
+      "code": "recording-in-progress",
+      "title": "A recording is in progress",
+      "sentence": "a recording is in progress: stop it before running a macro, or the macro would drive the mouse and keyboard into the recording",
+      "causes": [
+        "You started a recording and have not stopped it.",
+        "A macro was started from its hotkey or the tray while you were recording."
+      ],
+      "fix": [
+        "Stop the recording, with the Stop recording button or its stop key, then run the macro."
+      ]
+    },
+    {
+      "code": "reference",
+      "title": "A step uses a value that is not there",
+      "sentence": "\u003cstep\u003e uses \u003cvalue\u003e, which is made later / by a step that is not there / inside a lane that may not run.",
+      "causes": [
+        "The value is made by a step further down, so it does not exist yet when this step runs.",
+        "The step that makes the value was deleted, or the value is made inside an If or a Repeat and read after it.",
+        "The value is a different kind than the setting takes, such as text where a number is needed."
+      ],
+      "fix": [
+        "Pick the value again from the list in the step: it offers only the values that are certain to exist at that point.",
+        "Move the step that makes the value above the one that uses it, or read it inside the same lane."
+      ]
+    },
+    {
+      "code": "repeat-condition-static",
+      "title": "A Repeat's condition cannot change",
+      "sentence": "\u003cstep\u003e reads only values made before it, which nothing inside the loop can change.",
+      "causes": [
+        "The Repeat's while or until condition compares values made before the Repeat started, so every pass sees the same answer."
+      ],
+      "fix": [
+        "Compare a value that a step inside the Repeat makes, or look at the screen instead."
+      ]
+    },
+    {
+      "code": "repeat-forever",
+      "title": "A Repeat that never ends",
+      "sentence": "\u003cstep\u003e repeats for ever and has no Stop repeating inside it, so only Stop can end it.",
+      "causes": [
+        "The Repeat is set to repeat for ever and nothing inside it leaves the loop."
+      ],
+      "fix": [
+        "Add a Stop repeating inside an If in the Repeat, or choose how many times, or until what, to repeat."
+      ]
+    },
+    {
+      "code": "repeat-items",
+      "title": "A Repeat walks the wrong kind of list",
+      "sentence": "\u003cstep\u003e walks \u003cvalue\u003e, a list of \u003ckind\u003e, so its items are \u003ckind\u003e, but it is set to walk \u003cother kind\u003e.",
+      "causes": [
+        "The Repeat was set to walk text and the list it reads holds areas, or the other way round.",
+        "The step that makes the list was changed after the Repeat was set up."
+      ],
+      "fix": [
+        "Pick the list again in the Repeat so it takes the kind the list holds."
+      ]
+    },
+    {
+      "code": "retry",
+      "title": "\"Try again\" is not available on this step",
+      "sentence": "\u003cstep\u003e cannot try again: \u003creason\u003e.",
+      "causes": [
+        "Try again is set on a step that cannot be repeated safely, such as asking Claude, or its count is out of range."
+      ],
+      "fix": [
+        "Turn Try again off for the step, or set it between 1 and 10 more tries."
+      ]
+    },
+    {
+      "code": "run-script",
+      "title": "A macro runs a PowerShell script",
+      "sentence": "\u003cstep\u003e runs a PowerShell script.",
+      "causes": [
+        "A Run script step is in the macro."
+      ],
+      "fix": [
+        "Read the script before running the macro, and only keep it if you trust where the macro came from."
+      ]
+    },
+    {
+      "code": "skipped-node",
+      "title": "A step is turned off in a way that cannot work",
+      "sentence": "\u003cstep\u003e cannot be turned off.",
+      "causes": [
+        "A Start cannot be turned off: a run begins at it."
+      ],
+      "fix": [
+        "Turn the step back on."
+      ]
+    },
+    {
+      "code": "stop-repeating",
+      "title": "Stop repeating is outside a Repeat",
+      "sentence": "Stop repeating is not inside a Repeat, so there is nothing for it to stop.",
+      "causes": [
+        "The step was moved or pasted out of the Repeat it belonged to."
+      ],
+      "fix": [
+        "Put the step back inside a Repeat, or delete it."
+      ]
+    },
+    {
+      "code": "structure",
+      "title": "The steps are not joined up in a way Keypress can run",
+      "sentence": "\u003cstep\u003e has \u003cn\u003e lines leaving by \u003cname\u003e: each one can lead to only one step. / \u003cstep\u003e is not connected to anything that starts it, so it would never run.",
+      "causes": [
+        "A step has two lines leaving the same place, or a line leaves by a place the step does not have.",
+        "A line crosses the edge of a Repeat, an If or a Group, or goes back to a step that already ran.",
+        "A step inside a frame is not joined to the frame's start, or something leads into a Start.",
+        "The macro file was edited by hand."
+      ],
+      "fix": [
+        "Remove the extra line, or drag the step to where it belongs, so each place leads to one step.",
+        "Repeat a group of steps with a Repeat, never by pointing a line back."
+      ]
+    },
+    {
+      "code": "unknown-field",
+      "title": "A step has a setting this version does not know",
+      "sentence": "\u003cstep\u003e has a setting called \u003cname\u003e, which this build of Keypress does not know.",
+      "causes": [
+        "The macro was made in a newer version of Keypress.",
+        "The macro file was edited by hand."
+      ],
+      "fix": [
+        "Update Keypress and open the macro again.",
+        "Or delete the step and add it again from the palette."
+      ]
+    },
+    {
+      "code": "unknown-node-type",
+      "title": "A step is not one this version knows",
+      "sentence": "\u003cn\u003e step(s) are of a type this build of Keypress cannot run (\u003cid\u003e (type \u003ctype\u003e)): update Keypress, or remove those steps",
+      "causes": [
+        "The macro was made in a newer version of Keypress.",
+        "The macro file was edited by hand, or a step was saved without a type."
+      ],
+      "fix": [
+        "Update Keypress and open the macro again.",
+        "Or delete the steps the message names."
+      ]
+    },
+    {
+      "code": "wait-screen",
+      "title": "A Wait for the screen that cannot finish",
+      "sentence": "\u003cstep\u003e: \u003creason\u003e.",
+      "causes": [
+        "A Wait for the screen to change or settle has no time to give up after, so it would look once and never see anything.",
+        "A Wait for the screen to settle has to stay still for longer than it is allowed to wait."
+      ],
+      "fix": [
+        "Open the Wait and give it longer to wait, or a shorter time to stay still."
+      ]
+    },
+    {
+      "code": "web-request",
+      "title": "A macro sends a web request",
+      "sentence": "\u003cstep\u003e sends a request to \u003chost\u003e.",
+      "causes": [
+        "A Web request step is in the macro."
+      ],
+      "fix": [
+        "Check the address, and only keep the step if you trust where the macro came from."
+      ]
+    }
+  ]
+}
